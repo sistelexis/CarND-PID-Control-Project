@@ -14,13 +14,13 @@ More information is only accessible by people who are already enrolled in Term 2
 
 ### Describe the effect each of the P, I, D components had in your implementation.
 
-As soon as I started playing around with the components paramenters, it was quite clear that they affected the trajectory the way it has been described during the course:
+As soon as I started playing around with the components parameters, it was quite clear that they affected the trajectory the way it has been described during the course:
 
-P - proportional control - that is the main parameter to bring the car to the right position, unfortunately, it is not enough by itseld to do the work alone since it gets very unstable.
+P - proportional control - that is the main parameter to bring the car to the right position, unfortunately, it is not enough by itself to do the work alone since it gets very unstable.
 
-I - integral control - this one, as said in the course, in meant to eliminate any existing bias. Since it is not the case here, the recommended value is so low the it can be simplified as being zero. Values of the same dimension used on the other modules makes thye car extremely unstable.
+I - integral control - this one, as said in the course, in meant to eliminate any existing bias. Since it is not the case here, the recommended value is so low the it can be simplified as being zero. Values of the same dimension used on the other modules makes the car extremely unstable.
 
-D - diferential control - this parameter acts like a stabilizator to remove the "over-reaction" from the P module
+D - differential control - this parameter acts like a stabilizer to remove the "over-reaction" from the P module
 
 ### Describe how the final hyperparameters were chosen.
 
@@ -30,7 +30,7 @@ D - diferential control - this parameter acts like a stabilizator to remove the 
 
 -1 -1 -1 -> Goes Extreme left then fully right and gets off the road (Negative values look better than positives)
 
--1 0 0 -> Starts ok then increases occilation until it gets off th road
+-1 0 0 -> Starts ok then increases oscillation until it gets off the road
 
 0 -1 0 -> Same as [-1 -1 -1]
 
@@ -56,7 +56,7 @@ Based on those first results, it seems that the system is:
 
 Based on the description, Parameter I is made to correct some bias, that doesn't appear to be present on the demo, so setting it to a very low value close to 0 (or exactly zero) seems a good approach.
 
-Based on that approach, from now on, we will only concentrate on Parameters P and D. We have also learnt that D needs to have a bigger asolute value.
+Based on that approach, from now on, we will only concentrate on Parameters P and D. We have also learnt that D needs to have a bigger absolute value.
 
 -1 0 -10 -> Quite nervous but completes the lap
 
@@ -78,6 +78,22 @@ Fine tuning approach:
 
 It is hard to evaluate all the working sets of parameters. The main idea is to find the sweet spot between reactivity and stability.
 Using twiddle should provide us a set near those last two. Unfortunately, due to lack of time, I have not been able to follow that path.
+
+Anyway, those values are close to those used by Sebastian during the course [-0.2 -0.004 -3.0], that also provides a good result on the simulator.
+
+## Using the code
+
+Since this project is made more to help students get in touch with all the modules and understand how their parameters will affect the car behaviour, running the code must be done with those parameters.
+
+Example:
+
+~# ./pid -0.1 0 -3
+
+or 
+
+~# ./pid -0.2 -0.004 -3.0
+
+Note: Although issues on my PC did not allow me to get a recording, following the example it can easily be achieved running my code.
 
 
 
