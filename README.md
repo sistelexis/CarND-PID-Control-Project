@@ -17,7 +17,9 @@ More information is only accessible by people who are already enrolled in Term 2
 As soon as I started playing around with the components paramenters, it was quite clear that they affected the trajectory the way it has been described during the course:
 
 P - proportional control - that is the main parameter to bring the car to the right position, unfortunately, it is not enough by itseld to do the work alone since it gets very unstable.
+
 I - integral control - this one, as said in the course, in meant to eliminate any existing bias. Since it is not the case here, the recommended value is so low the it can be simplified as being zero. Values of the same dimension used on the other modules makes thye car extremely unstable.
+
 D - diferential control - this parameter acts like a stabilizator to remove the "over-reaction" from the P module
 
 ### Describe how the final hyperparameters were chosen.
