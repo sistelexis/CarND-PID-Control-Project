@@ -95,7 +95,7 @@ or
 
 Note: Although issues on my PC did not allow me to get a recording, following the example it can easily be achieved running my code.
 
-Finally a big thank you to all the forum member and specially to David Silver and his amazing recorded project Q&A that cleared all my questions and doubts even before I had them :)
+Finally a big thank you to all the forum members and specially to David Silver and his amazing recorded project Q&A that cleared all my questions and doubts even before I had them :)
 
 
 
