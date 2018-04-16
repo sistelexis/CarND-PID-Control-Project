@@ -25,35 +25,56 @@ D - diferential control - this parameter acts like a stabilizator to remove the 
 ### Describe how the final hyperparameters were chosen.
 
 1 1 1 -> Jumps directly out to the right off the road
+
 0 0 0 -> Goes perfectly straight and gets out on the first kerb
+
 -1 -1 -1 -> Goes Extreme left then fully right and gets off the road (Negative values look better than positives)
+
 -1 0 0 -> Starts ok then increases occilation until it gets off th road
+
 0 -1 0 -> Same as [-1 -1 -1]
+
 0 0 -1 -> A bit better than [0 0 0]
+
 -1 0 -1 -> Quite close to [-1 0 0] (same weight has a bigger effect on parameter 1 than on 3)
+
 -0.1 -0.1 -0.1 -> Goes Extreme left then fully right and gets off the road
+
 -0.1 0 0 -> reaches the first kerb, but undershoots it, and gets off the road
+
 0 -0.1 0 -> Same overall behaviour than [-1 -1 -1] 
+
 0 0 -0.1 -> Same as (0 0 0)
 
+
 Based on those first results, it seems that the system is:
+
 - much more sensible to changes on parameter I than on parameter P
+
 - more sensible on changes on parameter P than on parameter D.
+
 
 Based on the description, Parameter I is made to correct some bias, that doesn't appear to be present on the demo, so setting it to a very low value close to 0 (or exactly zero) seems a good approach.
 
 Based on that approach, from now on, we will only concentrate on Parameters P and D. We have also learnt that D needs to have a bigger asolute value.
 
 -1 0 -10 -> Quite nervous but completes the lap
+
 -0.1 0 -1 -> Smoother but less reactive than [-1 0 -10]
+
 -0.1 0 -10 -> A bit like [-1 0 -10]
+
 
 Fine tuning approach:
 
 -0.1 0 -5 -> Between [-1 0 -10] and [-0.1 0 -1]
+
 -0.5 0 -5 -> Slightly more precise than [-0.1 0 -5] but still too nervous
+
 -0.5 0 -3 -> Ok
+
 -0.1 0 -3 -> Ok
+
 
 It is hard to evaluate all the working sets of parameters. The main idea is to find the sweet spot between reactivity and stability.
 Using twiddle should provide us a set near those last two. Unfortunately, due to lack of time, I have not been able to follow that path.
